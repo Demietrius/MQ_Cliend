@@ -1,0 +1,18 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = ".name-Dev"
+s3_bucket = "charterandgo-deploy-dev"
+s3_prefix = ".name"
+region = "us-east-1"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"
+
+[prod.deploy.parameters]
+stack_name = ".name-Prod"
+s3_bucket = "charterandgo-deploy-prod"
+s3_prefix = ".name"
+region = "us-east-1"
+confirm_changeset = false
+capabilities = "CAPABILITY_IAM"

@@ -1,0 +1,41 @@
+Error Number,Error Message(EN),Type,HTTP Code,Error Message (SP),Domain
+1001,Unexpected error,FATAL,400,,Template
+1002,Missing body from Record.,FATAL,400,,Template
+1003,Missing Message from body.,FATAL,400,,Template
+1004,Missing eventResponse from Message.,FATAL,400,,Template
+1005,Request is not formatted correctly .,FATAL,400,,Template
+1007,Missing commonParms from request.,FATAL,400,,Template
+1008,Missing action from request.,FATAL,400,,Template
+1009,Missing view from request.,FATAL,400,,Template
+1010,Missing version from request.,FATAL,400,,Template
+1011,Missing context from request.,FATAL,400,,Template
+1012,Missing securityToken.,FATAL,400,,Template
+1013,Missing domainName.,FATAL,400,,Template
+1014,Missing language,FATAL,400,,Template
+1015,Missing request from request.,FATAL,400,,Template
+1017,Missing supplierId from request,FATAL,400,,Template
+1018,Missing businessProfileId from request.,FATAL,400,,Template
+1019,Missing payload from response in the lambda accessor.,FATAL,400,,Template
+1020,Missing StatusCode from response in the lambda accessor.,FATAL,400,,Template
+1021,Missing standardResponse from response body in the lambda accessor.,FATAL,400,,Template
+1022,Unexpected error in lambda accessor.,FATAL,400,,Template
+1023,"Exception, validate token structure.",FATAL,400,,Template
+1024,Unexpect error in validate token.,FATAL,400,,Template
+1025,Decryption failure exception.,FATAL,400,,Template
+1026,Internal service error exception.,FATAL,400,,Template
+1027,Invalid parameter exception.,FATAL,400,,Template
+1028,Invalid request exception.,FATAL,400,,Template
+1029,Resource not found exception.,FATAL,400,,Template
+1030,Unexpected error in validate token.,FATAL,400,,Template
+1031,Decryption failure exception in secret manager.,FATAL,400,,Template
+1033,Invalid parameter exception in secret manager.,FATAL,400,,Template
+1034,Invalid request exception in secret manager.,FATAL,400,,Template
+1035,ResourceNotFoundException in secret manager.,FATAL,400,,Template
+1036,Error while crating secret in secret manager.,FATAL,400,,Template
+1037,Error while updating secret in secret manager.,FATAL,400,,Template
+1038,Duplicate secret in secret manager.,FATAL,400,,Template
+1039,Unexpected error in secret manager.,FATAL,400,,Template
+1040,Failed to connection to database.,FATAL,400,,Template
+1041,Failed to return data from database.,FATAL,400,,Template
+1042,Failed to read from database,FATAL,400,,Template
+1043,Failed to update from database,FATAL,400,,Template

@@ -1,0 +1,72 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  The Template
+
+  Sample SAM Template for The Template
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 15
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: src/
+      Handler: app.lambda_handler
+      Runtime: python3.9
+      AutoPublishAlias: Prod
+      Role: arn:aws:iam::901034071818:role/lambda-vpc-role
+      FunctionName: .name-Prod
+      Architectures:
+        - x86_64
+      Environment:
+        Variables:
+          ENVIRONMENT_TYPE: local
+          CAG_BUSINESS_PROFILE_FUNCTION: BusinessProfileMS-Prod
+          CAG_private_key: CAG_Private_Key-Prod
+          CAG_public_key: CAG_Public_Key-Prod
+          CAG_REGION: us-east-1
+          CAG_DATABASE_CREDENTIALS: CAG_ForeFlight_Connection-Prod
+          CAG_Logging: debug
+          CAG_Logging_Boto: critical
+          CAG_ERROR_NUMBER: 1000
+      Events:
+        Create:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /Create
+            Method: post
+        Read:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /Read
+            Method: post
+        Update:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /Update
+            Method: post
+
+#  SNSTopic:
+#    Type: AWS::SNS::Topic
+#    Properties:
+#      ContentBasedDeduplication: false
+#      TopicName: certifications_template_dev.fifo
+#      FifoTopic: true
+#      Subscription:
+#        - Protocol: sqs
+#          Endpoint: !GetAtt SQSQueue.Arn
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  HelloWorldApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+  HelloWorldFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt HelloWorldFunction.Arn
